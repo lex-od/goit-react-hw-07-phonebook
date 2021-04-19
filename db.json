@@ -1,0 +1,16 @@
+{
+    "contacts": [
+        {
+            "name": "Vasya Pupkin",
+            "number": "5557772233"
+        },
+        {
+            "name": "Smile Food",
+            "number": "8889994545"
+        },
+        {
+            "name": "Black Shake",
+            "number": "7773332211"
+        }
+    ]
+}

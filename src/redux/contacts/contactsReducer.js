@@ -18,27 +18,3 @@ const contactsReducer = combineReducers({
     filter: filterReducer,
 });
 export default contactsReducer;
-
-// import actionTypes from './contactsTypes';
-
-// const itemsReducer = (state = [], { type, payload }) => {
-//     switch (type) {
-//         case actionTypes.ADD_CONTACT:
-//             return [payload, ...state];
-//         case actionTypes.DELETE_CONTACT:
-//             return state.filter(({ id }) => id !== payload);
-//         case actionTypes.LOAD_CONTACTS:
-//             return payload;
-//         default:
-//             return state;
-//     }
-// };
-
-// const filterReducer = (state = '', { type, payload }) => {
-//     switch (type) {
-//         case actionTypes.CHANGE_FILTER:
-//             return payload;
-//         default:
-//             return state;
-//     }
-// };
