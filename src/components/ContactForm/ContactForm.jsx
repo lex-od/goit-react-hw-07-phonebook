@@ -3,14 +3,14 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import css from './ContactForm.module.scss';
 import config from '../../json/ContactFormConfig.json';
-import contactsActions from '../../redux/contacts/contactsActions';
+import { addContact } from '../../redux/contacts/contactsOperations';
 
 class ContactForm extends Component {
     static propTypes = {
         dispSubmit: PropTypes.func.isRequired,
         contacts: PropTypes.arrayOf(
             PropTypes.shape({
-                id: PropTypes.string.isRequired,
+                id: PropTypes.number.isRequired,
                 name: PropTypes.string.isRequired,
                 number: PropTypes.string.isRequired,
             }),
@@ -88,7 +88,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    dispSubmit: contact => dispatch(contactsActions.addContact(contact)),
+    dispSubmit: contact => dispatch(addContact(contact)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContactForm);

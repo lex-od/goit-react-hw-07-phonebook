@@ -1,16 +1,22 @@
 import axios from 'axios';
-import contactsActions from './contactsActions';
+import {
+    addContactRequest,
+    addContactSuccess,
+    addContactError,
+} from './contactsActions';
+
+axios.defaults.baseURL = 'http://localhost:40401';
 
 const addContact = contact => async dispatch => {
-    dispatch(contactsActions.addContactRequest);
+    dispatch(addContactRequest);
 
     try {
+        console.log(contact);
         const { data } = await axios.post('/contacts', contact);
-        dispatch(contactsActions.addContactSuccess(data));
+        dispatch(addContactSuccess(data));
     } catch (error) {
-        dispatch(contactsActions.addContactError(error));
+        dispatch(addContactError(error));
     }
 };
 
-const contactsOperations = { addContact };
-export default contactsOperations;
+export { addContact };

@@ -18,7 +18,7 @@ const ContactItem = ({ id, name, number, onBtnClick }) => (
 );
 
 ContactItem.propTypes = {
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     number: PropTypes.string.isRequired,
     onBtnClick: PropTypes.func.isRequired,
