@@ -8,8 +8,18 @@ import {
     PURGE,
     REGISTER,
 } from 'redux-persist';
+import {
+    loadContactsError,
+    addContactError,
+    deleteContactError,
+} from './contacts/contactsActions';
 import contactsReducer from './contacts/contactsReducer';
-import { addContactError } from './contacts/contactsActions';
+
+const errorActions = [
+    loadContactsError.type,
+    addContactError.type,
+    deleteContactError.type,
+];
 
 const middleware = [
     ...getDefaultMiddleware({
@@ -21,7 +31,7 @@ const middleware = [
                 PERSIST,
                 PURGE,
                 REGISTER,
-                addContactError.type,
+                ...errorActions,
             ],
         },
     }),

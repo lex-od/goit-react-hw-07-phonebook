@@ -1,5 +1,9 @@
 import { createAction } from '@reduxjs/toolkit';
 
+const loadContactsRequest = createAction('contacts/loadContactsRequest');
+const loadContactsSuccess = createAction('contacts/loadContactsSuccess');
+const loadContactsError = createAction('contacts/loadContactsError');
+
 const addContactRequest = createAction('contacts/addContactRequest');
 const addContactSuccess = createAction('contacts/addContactSuccess');
 const addContactError = createAction('contacts/addContactError');
@@ -10,9 +14,10 @@ const deleteContactError = createAction('contacts/deleteContactError');
 
 const changeFilter = createAction('contacts/changeFilter');
 
-// const loadContacts = createAction('contacts/load');
-
 export {
+    loadContactsRequest,
+    loadContactsSuccess,
+    loadContactsError,
     addContactRequest,
     addContactSuccess,
     addContactError,
@@ -20,6 +25,4 @@ export {
     deleteContactSuccess,
     deleteContactError,
     changeFilter,
-
-    // loadContacts,
 };
