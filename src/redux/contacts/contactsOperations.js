@@ -5,13 +5,12 @@ import {
     addContactError,
 } from './contactsActions';
 
-axios.defaults.baseURL = 'http://localhost:40401';
+axios.defaults.baseURL = 'http://localhost:4040';
 
 const addContact = contact => async dispatch => {
-    dispatch(addContactRequest);
+    dispatch(addContactRequest());
 
     try {
-        console.log(contact);
         const { data } = await axios.post('/contacts', contact);
         dispatch(addContactSuccess(data));
     } catch (error) {

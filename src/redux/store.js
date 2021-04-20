@@ -9,12 +9,23 @@ import {
     REGISTER,
 } from 'redux-persist';
 import contactsReducer from './contacts/contactsReducer';
+import { addContactError } from './contacts/contactsActions';
 
-const middleware = getDefaultMiddleware({
-    serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-    },
-});
+const middleware = [
+    ...getDefaultMiddleware({
+        serializableCheck: {
+            ignoredActions: [
+                FLUSH,
+                REHYDRATE,
+                PAUSE,
+                PERSIST,
+                PURGE,
+                REGISTER,
+                addContactError.type,
+            ],
+        },
+    }),
+];
 
 const store = configureStore({
     reducer: {

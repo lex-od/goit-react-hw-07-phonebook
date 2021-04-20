@@ -1,9 +1,9 @@
 import { createReducer, combineReducers } from '@reduxjs/toolkit';
 import {
-    addContactError,
-    addContactRequest,
     addContactSuccess,
+    addContactRequest,
     changeFilter,
+    addContactError,
 } from './contactsActions';
 
 const itemsReducer = createReducer([], {
