@@ -1,16 +1,6 @@
 {
   "contacts": [
     {
-      "name": "dsfsdf",
-      "number": "111111111111",
-      "id": 2
-    },
-    {
-      "name": "yyy",
-      "number": "6666666668",
-      "id": 4
-    },
-    {
       "name": "Vasya Pupkin",
       "number": "5555555555",
       "id": 5
@@ -26,11 +16,6 @@
       "id": 10
     },
     {
-      "name": "vvvv",
-      "number": "3434343477",
-      "id": 12
-    },
-    {
       "name": "kiwi",
       "number": "9595959599",
       "id": 14
@@ -44,6 +29,11 @@
       "name": "poly",
       "number": "6465465445",
       "id": 16
+    },
+    {
+      "name": "john",
+      "number": "4646456547",
+      "id": 19
     }
   ]
 }
