@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import css from './ContactList.module.scss';
 import { deleteContact } from '../../redux/contacts/contactsOperations';
 import ContactItem from '../ContactItem';
+import { contactsSelectors } from '../../redux/contacts';
 
 const ContactList = ({ contacts, dispItemBtnClick }) => (
     <ul>
@@ -23,16 +24,8 @@ ContactList.propTypes = {
     contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
-const getFilteredContacts = (contacts, filter) => {
-    const normFilter = filter.toLowerCase();
-
-    return contacts.filter(({ name }) =>
-        name.toLowerCase().includes(normFilter),
-    );
-};
-
-const mapStateToProps = ({ contacts: { items, filter } }) => ({
-    contacts: getFilteredContacts(items, filter),
+const mapStateToProps = state => ({
+    contacts: contactsSelectors.getFilteredContacts(state),
 });
 
 const mapDispatchToProps = dispatch => ({

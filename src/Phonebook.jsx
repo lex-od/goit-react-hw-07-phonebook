@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import Loader from 'react-loader-spinner';
 import css from './styles/Phonebook.module.scss';
@@ -7,10 +7,13 @@ import ContactForm from './components/ContactForm';
 import Filter from './components/Filter';
 import ContactList from './components/ContactList';
 import { loadContacts } from './redux/contacts/contactsOperations';
+import { contactsSelectors } from './redux/contacts';
 
-const Phonebook = ({ dispLoadContacts, isLoading, error }) => {
+const Phonebook = ({ isLoading, error }) => {
+    const dispatch = useDispatch();
+
     useEffect(() => {
-        dispLoadContacts();
+        dispatch(loadContacts());
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
@@ -44,18 +47,17 @@ const Phonebook = ({ dispLoadContacts, isLoading, error }) => {
 };
 
 Phonebook.propTypes = {
-    dispLoadContacts: PropTypes.func.isRequired,
     isLoading: PropTypes.bool.isRequired,
     error: PropTypes.oneOfType([PropTypes.object, PropTypes.oneOf([null])]),
 };
 
 const mapStateToProps = state => ({
-    isLoading: state.contacts.loading,
-    error: state.contacts.error,
+    isLoading: contactsSelectors.getLoading(state),
+    error: contactsSelectors.getError(state),
 });
 
-const mapDispatchToProps = dispatch => ({
-    dispLoadContacts: () => dispatch(loadContacts()),
-});
+export default connect(mapStateToProps)(Phonebook);
 
-export default connect(mapStateToProps, mapDispatchToProps)(Phonebook);
+// const mapDispatchToProps = dispatch => ({
+//     dispLoadContacts: () => dispatch(loadContacts()),
+// });

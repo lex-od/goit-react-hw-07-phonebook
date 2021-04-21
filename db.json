@@ -1,11 +1,6 @@
 {
   "contacts": [
     {
-      "name": "mango",
-      "number": "333333333333",
-      "id": 1
-    },
-    {
       "name": "dsfsdf",
       "number": "111111111111",
       "id": 2
@@ -44,6 +39,11 @@
       "name": "petya",
       "number": "6546546454",
       "id": 15
+    },
+    {
+      "name": "poly",
+      "number": "6465465445",
+      "id": 16
     }
   ]
 }
